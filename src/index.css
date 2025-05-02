@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) translateX(15px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-35px) translateX(-15px) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-20px) translateX(-20px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-slate-900 text-white;
+}
