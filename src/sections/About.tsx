@@ -38,19 +38,19 @@ const About = () => {
             </p>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-[#1a2333] p-4 rounded-lg border border-slate-700">
+              <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-lg border border-slate-700 transform transition-transform duration-300 hover:scale-105">
                 <h4 className="font-bold mb-1">Name:</h4>
                 <p className="text-gray-400">Vishwa Sandun</p>
               </div>
-              <div className="bg-[#1a2333] p-4 rounded-lg border border-slate-700">
+              <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-lg border border-slate-700 transform transition-transform duration-300 hover:scale-105">
                 <h4 className="font-bold mb-1">Email:</h4>
-                <p className="text-gray-400">Vishwa Sandun</p>
+                <p className="text-gray-400">sandunv05@gmail.com</p>
               </div>
-              <div className="bg-[#1a2333] p-4 rounded-lg border border-slate-700">
+              <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-lg border border-slate-700 transform transition-transform duration-300 hover:scale-105">
                 <h4 className="font-bold mb-1">Location:</h4>
-                <p className="text-gray-400">Hnawella,Colombo</p>
+                <p className="text-gray-400">Hanwella,Colombo</p>
               </div>
-              <div className="bg-[#1a2333] p-4 rounded-lg border border-slate-700">
+              <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-lg border border-slate-700 transform transition-transform duration-300 hover:scale-105">
                 <h4 className="font-bold mb-1">Degree:</h4>
                 <p className="text-gray-400">B.Sc. Software Engineering</p>
               </div>
