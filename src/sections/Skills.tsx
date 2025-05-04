@@ -15,19 +15,19 @@ const skillCategories = [
     title: 'Backend Development',
     skills: [
       { name: 'Node.js', level: 80 },
-      { name: 'Express', level: 75 },
+      { name: 'Express', level: 60 },
       { name: 'Python', level: 70 },
-      { name: 'Java', level: 65 },
-      { name: 'PHP', level: 60 },
+      { name: 'Java', level: 70 },
+      { name: 'PHP', level: 50 },
     ],
   },
   {
     title: 'Database & Cloud',
     skills: [
       { name: 'MongoDB', level: 75 },
-      { name: 'MySQL', level: 80 },
-      { name: 'AWS', level: 65 },
-      { name: 'Firebase', level: 70 },
+      { name: 'MySQL', level: 70 },
+      { name: 'AWS', level: 60 },
+      { name: 'Supabase', level: 50 },
       { name: 'Docker', level: 60 },
     ],
   },
@@ -35,9 +35,9 @@ const skillCategories = [
     title: 'Tools & Others',
     skills: [
       { name: 'Git', level: 85 },
-      { name: 'Agile/Scrum', level: 75 },
-      { name: 'Testing', level: 70 },
-      { name: 'UI/UX', level: 65 },
+      { name: 'Agile/Scrum', level: 50 },
+      { name: 'Flutter', level: 70 },
+      { name: 'Figma', level: 65 },
       { name: 'DevOps', level: 60 },
     ],
   },
@@ -82,8 +82,8 @@ const Skills = () => {
         <div className="mt-16 text-center">
           <h3 className="text-xl font-bold mb-6">Other Skills & Technologies</h3>
           <div className="flex flex-wrap justify-center gap-3">
-            {['GraphQL', 'Tailwind CSS', 'Jest', 'Next.js', 'Vue.js', 'SpringBoot', 'PostgreSQL', 
-              'Redis', 'CI/CD', 'Kubernetes', 'Figma', 'WebSockets'].map((skill, index) => (
+            {['Laravel', 'Tailwind CSS', 'Jquery', 'Bootstrap', 'Google Cloud', 'Arduino', 'Raspberry', 
+              'Cisco', 'CI/CD', 'Kubernetes', 'Figma', 'WebSockets'].map((skill, index) => (
               <span 
                 key={index} 
                 className="px-4 py-2 bg-[#1a2333] text-gray-300 rounded-full border border-slate-600/50 hover:bg-blue-400/20 hover:border-blue-400/50 transition-colors"
