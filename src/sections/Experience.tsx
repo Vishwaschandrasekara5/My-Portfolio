@@ -3,52 +3,91 @@ import React from 'react';
 const experiences = [
   {
     id: 1,
-    position: 'Software Engineering Intern',
-    company: 'Tech Solutions Inc.',
-    duration: 'May 2024 - Present',
-    description: 'Working on developing and maintaining web applications using React, Node.js, and MongoDB. Collaborating with a team of developers to implement new features and fix bugs.',
+    position: 'Deputy Subcommittee Head of Volunteering Engagement',
+    company: 'IEEE Computer Society - SLTC Research University',
+    duration: '2023 - 2024',
+    description: 'Led volunteering initiatives and engagement activities for the IEEE Computer Society branch.',
     responsibilities: [
-      'Developed responsive user interfaces using React and Material UI',
-      'Implemented RESTful APIs using Node.js and Express',
-      'Participated in code reviews and agile development processes',
-      'Optimized database queries for improved application performance'
+      'Coordinated volunteer activities and community engagement programs',
+      'Managed team of volunteers for various events and projects',
+      'Developed strategies to increase member participation',
+      'Collaborated with other IEEE branches for joint initiatives'
     ]
   },
   {
     id: 2,
-    position: 'Web Development Intern',
-    company: 'Digital Creations',
-    duration: 'June 2023 - August 2023',
-    description: 'Assisted in the development of client websites using HTML, CSS, JavaScript, and WordPress. Worked closely with designers to implement UI/UX designs.',
+    position: 'Technical Team Head - Ideanix Generation 01',
+    company: 'IEEE Computer Society - SLTC Research University',
+    duration: '2023',
+    description: 'Led the technical aspects of Ideanix Generation 01 event, ensuring smooth execution of all technical requirements.',
     responsibilities: [
-      'Created responsive layouts using HTML5, CSS3, and Bootstrap',
-      'Customized WordPress themes according to client requirements',
-      'Optimized website performance and loading speeds',
-      'Implemented SEO best practices for better search engine visibility'
+      'Managed technical infrastructure and requirements',
+      'Coordinated with cross-functional teams',
+      'Supervised technical setup and troubleshooting',
+      'Ensured successful event execution'
     ]
   },
   {
     id: 3,
-    position: 'Junior Developer',
-    company: 'University Research Lab',
-    duration: 'January 2023 - May 2023',
-    description: 'Contributed to research projects by developing software tools for data analysis and visualization. Worked with Python and various scientific libraries.',
+    position: 'Program Team Head - Codemania v.4',
+    company: 'IEEE Computer Society - SLTC Research University',
+    duration: '2024',
+    description: 'Led the program team for Codemania v.4, a flagship coding competition event.',
     responsibilities: [
-      'Developed data processing scripts using Python and Pandas',
-      'Created interactive data visualizations using Matplotlib and Plotly',
-      'Implemented machine learning algorithms for data analysis',
-      'Documented code and research findings for publication'
+      'Designed and planned event program structure',
+      'Coordinated with participants and judges',
+      'Managed event timeline and activities',
+      'Ensured smooth execution of the competition'
     ]
   },
+  {
+    id: 4,
+    position: 'Program Team Member',
+    company: 'Career Fest 2023 - IEEE Computer Society SLTC',
+    duration: '2023',
+    description: 'Contributed to the successful execution of Career Fest 2023.',
+    responsibilities: [
+      'Assisted in event planning and coordination',
+      'Supported participant engagement activities',
+      'Helped in program execution and management',
+      'Collaborated with team members for event success'
+    ]
+  },
+  {
+    id: 5,
+    position: 'Program Team Member - inspiHer v.2',
+    company: 'IEEE WIE Branch - SLTC Research University',
+    duration: '2024',
+    description: 'Contributed to the women in engineering initiative through inspiHer v.2 program.',
+    responsibilities: [
+      'Supported program planning and execution',
+      'Engaged in promoting women in engineering',
+      'Assisted in event coordination',
+      'Contributed to participant engagement activities'
+    ]
+  },
+  {
+    id: 6,
+    position: 'Media Unit Member',
+    company: 'SLTC Research University',
+    duration: '2023 - 2024',
+    description: 'Active member of the university media unit, contributing to various media initiatives.',
+    responsibilities: [
+      'Created and managed media content',
+      'Supported event documentation',
+      'Assisted in university media campaigns',
+      'Collaborated with media team members'
+    ]
+  }
 ];
 
 const Education = [
   {
     id: 1,
-    degree: 'B.Sc. in Software Engineering',
-    institution: 'University Name',
-    duration: '2021 - 2025 (Expected)',
-    description: 'Focusing on software design, development methodologies, and computer science fundamentals. Maintaining a GPA of 3.8/4.0.',
+    degree: 'B.Sc. Hons in Software Engineering',
+    institution: 'Sri Lanka Technological Campus',
+    duration: '2022 - 2026 (Expected)',
+    description: 'Focusing on software design, development methodologies, and computer science fundamentals.',
     coursework: [
       'Data Structures and Algorithms',
       'Object-Oriented Programming',
@@ -59,15 +98,28 @@ const Education = [
   },
   {
     id: 2,
-    degree: 'High School Diploma',
-    institution: 'High School Name',
-    duration: '2017 - 2021',
-    description: 'Graduated with honors. Participated in various programming competitions and technology clubs.',
+    degree: 'Higher Education',
+    institution: 'Rajasinghe Central College',
+    duration: '2013 - 2020',
+    description: 'Completed Advanced Level in the Technology stream. Served as the main organizer of the Technology Society in the school year 2020.',
     coursework: [
-      'Computer Science',
-      'Mathematics',
-      'Physics',
+      'Engineering Technology',
+      'Science for Technology',
+      'Pure Mathematics',
       'English'
+    ]
+  },
+  {
+    id: 3,
+    degree: 'English Language Diploma',
+    institution: 'British Way English Academy',
+    duration: '2018',
+    description: 'Completed the diploma with a Merit Pass, focusing on advanced English language skills.',
+    coursework: [
+      'Advanced Grammar',
+      'Speaking and Listening Skills',
+      'Writing Techniques',
+      'Presentation Skills'
     ]
   }
 ];
@@ -85,9 +137,9 @@ const Experience = () => {
           <div>
             <h3 className="text-2xl font-bold mb-8 text-blue-400 flex items-center">
               <span className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white mr-3">
-                <span className="text-sm">👨‍💻</span>
+                <span className="text-sm">🤝</span>
               </span>
-              Professional Experience
+              Volunteering Experience
             </h3>
             
             <div className="relative border-l-2 border-slate-700 pl-8 ml-3 space-y-10">

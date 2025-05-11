@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowDownCircle } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 import FloatingIcons from '../components/FloatingIcons';
 
 const Hero = () => {
@@ -37,7 +38,7 @@ const Hero = () => {
           <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
             Passionate about building exceptional software solutions with cutting-edge technologies.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
             <a 
               href="#projects" 
               className="px-8 py-3 bg-blue-400 hover:bg-blue-500 text-white rounded-lg transition-colors shadow-lg hover:shadow-blue-400/20"
@@ -51,6 +52,8 @@ const Hero = () => {
               Contact Me
             </a>
           </div>
+
+          
         </div>
       </div>
       

@@ -38,21 +38,21 @@ const About = () => {
             </p>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-lg border border-slate-700 transform transition-transform duration-300 hover:scale-105">
-                <h4 className="font-bold mb-1">Name:</h4>
-                <p className="text-gray-400">Vishwa Sandun</p>
+              <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-lg border border-slate-700/20">
+                <h4 className="font-bold mb-1 text-white">Name:</h4>
+                <p className="text-gray-100">Vishwa Sandun</p>
               </div>
-              <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-lg border border-slate-700 transform transition-transform duration-300 hover:scale-105">
-                <h4 className="font-bold mb-1">Email:</h4>
-                <p className="text-gray-400">sandunv05@gmail.com</p>
+              <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-lg border border-slate-700/20">
+                <h4 className="font-bold mb-1 text-white">Email:</h4>
+                <p className="text-gray-100">sandunv05@gmail.com</p>
               </div>
-              <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-lg border border-slate-700 transform transition-transform duration-300 hover:scale-105">
-                <h4 className="font-bold mb-1">Location:</h4>
-                <p className="text-gray-400">Hanwella,Colombo</p>
+              <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-lg border border-slate-700/20">
+                <h4 className="font-bold mb-1 text-white">Location:</h4>
+                <p className="text-gray-100">Hanwella,Colombo</p>
               </div>
-              <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-lg border border-slate-700 transform transition-transform duration-300 hover:scale-105">
-                <h4 className="font-bold mb-1">Degree:</h4>
-                <p className="text-gray-400">B.Sc. Software Engineering</p>
+              <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-4 rounded-lg border border-slate-700/20">
+                <h4 className="font-bold mb-1 text-white">Degree:</h4>
+                <p className="text-gray-100">B.Sc. Software Engineering</p>
               </div>
             </div>
           </div>
