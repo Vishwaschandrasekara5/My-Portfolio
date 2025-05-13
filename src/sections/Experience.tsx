@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const experiences = [
   {
@@ -125,28 +126,76 @@ const Education = [
 ];
 
 const Experience = () => {
+  const { scrollYProgress } = useScroll();
+  
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 15]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.1, 1]);
+  
   return (
-    <section id="experience" className="py-20 bg-[#1a2333]">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <motion.section 
+      id="experience" 
+      className="py-20 relative overflow-hidden"
+      style={{
+        perspective: "1000px"
+      }}
+    >
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-b from-[#1a2333] via-[#1a2333] to-[#151d2a]"
+        style={{
+          rotateX: rotate,
+          scale: scale,
+          y: backgroundY
+        }}
+        transition={{
+          duration: 0.3,
+          ease: "easeOut"
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1a2333]/80 to-transparent pointer-events-none" />
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Experience & Education</h2>
           <div className="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
-        </div>
+        </motion.div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-2xl font-bold mb-8 text-blue-400 flex items-center">
+            <motion.h3 
+              className="text-2xl font-bold mb-8 text-blue-400 flex items-center"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <span className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white mr-3">
                 <span className="text-sm">🤝</span>
               </span>
               Volunteering Experience
-            </h3>
+            </motion.h3>
             
             <div className="relative border-l-2 border-slate-700 pl-8 ml-3 space-y-10">
-              {experiences.map((exp) => (
-                <div key={exp.id} className="relative">
+              {experiences.map((exp, index) => (
+                <motion.div 
+                  key={exp.id} 
+                  className="relative"
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
                   <div className="absolute -left-[41px] top-0 w-6 h-6 bg-blue-500 rounded-full border-4 border-[#0B1120]"></div>
-                  <div className="bg-[#0B1120]/60 p-6 rounded-xl shadow-lg border border-slate-700/50">
+                  <motion.div 
+                    className="bg-[#0B1120]/60 p-6 rounded-xl shadow-lg border border-slate-700/50 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"
+                    whileHover={{
+                      rotateX: 5,
+                      rotateY: -5,
+                      z: 50
+                    }}
+                  >
                     <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
                       <h4 className="text-xl font-bold text-white">{exp.position}</h4>
                       <span className="text-blue-400 font-medium">{exp.duration}</span>
@@ -158,25 +207,43 @@ const Experience = () => {
                         <li key={idx}>{resp}</li>
                       ))}
                     </ul>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               ))}
             </div>
           </div>
           
           <div>
-            <h3 className="text-2xl font-bold mb-8 text-blue-400 flex items-center">
+            <motion.h3 
+              className="text-2xl font-bold mb-8 text-blue-400 flex items-center"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <span className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white mr-3">
                 <span className="text-sm">🎓</span>
               </span>
               Education
-            </h3>
+            </motion.h3>
             
             <div className="relative border-l-2 border-slate-700 pl-8 ml-3 space-y-10">
-              {Education.map((edu) => (
-                <div key={edu.id} className="relative">
+              {Education.map((edu, index) => (
+                <motion.div 
+                  key={edu.id} 
+                  className="relative"
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
                   <div className="absolute -left-[41px] top-0 w-6 h-6 bg-blue-500 rounded-full border-4 border-[#0B1120]"></div>
-                  <div className="bg-[#0B1120]/60 p-6 rounded-xl shadow-lg border border-slate-700/50">
+                  <motion.div 
+                    className="bg-[#0B1120]/60 p-6 rounded-xl shadow-lg border border-slate-700/50 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"
+                    whileHover={{
+                      rotateX: 5,
+                      rotateY: 5,
+                      z: 50
+                    }}
+                  >
                     <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
                       <h4 className="text-xl font-bold text-white">{edu.degree}</h4>
                       <span className="text-blue-400 font-medium">{edu.duration}</span>
@@ -189,14 +256,14 @@ const Experience = () => {
                         <li key={idx}>{course}</li>
                       ))}
                     </ul>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               ))}
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -45,7 +45,7 @@ const skillCategories = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 bg-[#1a2333]">
+    <section id="skills" className="py-20 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
@@ -57,18 +57,24 @@ const Skills = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {skillCategories.map((category, index) => (
-            <div key={index} className="bg-[#0B1120]/60 rounded-xl p-6 shadow-lg border border-slate-700/50">
+            <div 
+              key={index} 
+              className="bg-gradient-to-br from-[#0d1524] to-[#0B1120] rounded-xl p-6 shadow-lg 
+                border-2 border-blue-500/20 hover:border-blue-500/40 
+                transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10"
+            >
               <h3 className="text-xl font-bold mb-6 text-blue-400">{category.title}</h3>
               <div className="space-y-5">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex}>
                     <div className="flex justify-between mb-1">
-                      <span className="font-medium">{skill.name}</span>
-                      <span className="text-gray-400">{skill.level}%</span>
+                      <span className="font-medium text-gray-200">{skill.name}</span>
+                      <span className="text-blue-400">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-slate-700 rounded-full h-2">
+                    <div className="w-full bg-slate-800/50 rounded-full h-2.5 border border-slate-700/30">
                       <div 
-                        className="bg-gradient-to-r from-blue-400 to-blue-600 h-2 rounded-full"
+                        className="bg-gradient-to-r from-blue-400 to-blue-600 h-2.5 rounded-full
+                          shadow-[0_0_10px_rgba(96,165,250,0.3)]"
                         style={{ width: `${skill.level}%` }}
                       ></div>
                     </div>
@@ -86,7 +92,9 @@ const Skills = () => {
               'Cisco', 'CI/CD', 'Kubernetes', 'Figma', 'WebSockets'].map((skill, index) => (
               <span 
                 key={index} 
-                className="px-4 py-2 bg-[#1a2333] text-gray-300 rounded-full border border-slate-600/50 hover:bg-blue-400/20 hover:border-blue-400/50 transition-colors"
+                className="px-4 py-2 bg-gradient-to-br from-[#0d1524] to-[#0B1120] text-gray-300 
+                  rounded-full border-2 border-blue-500/20 hover:border-blue-500/40 
+                  transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
               >
                 {skill}
               </span>
