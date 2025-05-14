@@ -1,49 +1,35 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
-const skillCategories = [
-  {
-    title: 'Frontend Development',
-    skills: [
-      { name: 'HTML/CSS', level: 90 },
-      { name: 'JavaScript', level: 80 },
-      { name: 'React', level: 80 },
-      { name: 'TypeScript', level: 50 },
-      { name: 'Redux', level: 70 },
-    ],
-  },
-  {
-    title: 'Backend Development',
-    skills: [
-      { name: 'Node.js', level: 80 },
-      { name: 'Express', level: 60 },
-      { name: 'Python', level: 70 },
-      { name: 'Java', level: 70 },
-      { name: 'PHP', level: 50 },
-    ],
-  },
-  {
-    title: 'Database & Cloud',
-    skills: [
-      { name: 'MongoDB', level: 75 },
-      { name: 'MySQL', level: 70 },
-      { name: 'AWS', level: 60 },
-      { name: 'Supabase', level: 50 },
-      { name: 'Docker', level: 60 },
-    ],
-  },
-  {
-    title: 'Tools & Others',
-    skills: [
-      { name: 'Git', level: 85 },
-      { name: 'Agile/Scrum', level: 50 },
-      { name: 'Flutter', level: 70 },
-      { name: 'Figma', level: 65 },
-      { name: 'DevOps', level: 60 },
-    ],
-  },
+const skills = [
+  { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+  { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+  { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+  { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+  { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+  { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
+  { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+  { name: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+  { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+  { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+  { name: 'Flutter', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
+  { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
 ];
 
 const Skills = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (!isHovered) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % skills.length);
+      }, 2000); // Decreased duration to 2 seconds for faster animation
+      return () => clearInterval(interval);
+    }
+  }, [isHovered]);
+
   return (
     <section id="skills" className="py-20 relative overflow-hidden">
       <div className="container mx-auto px-4">
@@ -51,54 +37,52 @@ const Skills = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
           <div className="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-            I've developed a diverse set of skills throughout my academic journey and personal projects. Here's an overview of my technical expertise.
+            I've developed a diverse set of skills throughout my academic journey and personal projects.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {skillCategories.map((category, index) => (
-            <div 
-              key={index} 
-              className="bg-gradient-to-br from-[#0d1524] to-[#0B1120] rounded-xl p-6 shadow-lg 
-                border-2 border-blue-500/20 hover:border-blue-500/40 
-                transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10"
-            >
-              <h3 className="text-xl font-bold mb-6 text-blue-400">{category.title}</h3>
-              <div className="space-y-5">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
-                    <div className="flex justify-between mb-1">
-                      <span className="font-medium text-gray-200">{skill.name}</span>
-                      <span className="text-blue-400">{skill.level}%</span>
+
+        <div 
+          className="relative h-[400px] overflow-hidden mx-auto max-w-5xl" // Increased height and added max width
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <div className="absolute w-full flex items-center justify-center" style={{ top: '50%', transform: 'translateY(-50%)' }}>
+            {skills.map((skill, index) => {
+              const position = (index - currentIndex + skills.length) % skills.length;
+              const isCenter = position === 0;
+              const offset = position < skills.length / 2 ? position : position - skills.length;
+              const distance = Math.abs(offset);
+              
+              return (
+                <div
+                  key={skill.name}
+                  className="absolute transition-all duration-300 transform" // Decreased duration from 500 to 300
+                  style={{
+                    transform: `translateX(${offset * 150}px) scale(${isCenter ? 1.8 : Math.max(0.7, 1 - distance * 0.25)})`,
+                    opacity: isCenter ? 1 : Math.max(0.2, 0.7 - distance * 0.2),
+                    zIndex: isCenter ? 10 : Math.max(0, 10 - distance),
+                    pointerEvents: isCenter ? 'auto' : 'none',
+                  }}
+                >
+                  <div className="flex flex-col items-center">
+                    <div className={`p-4 rounded-xl ${isCenter ? 'bg-[#1a2333]/50 backdrop-blur-sm' : ''}`}>
+                      <img 
+                        src={skill.icon} 
+                        alt={skill.name}
+                        className={`w-20 h-20 ${isCenter ? 'filter drop-shadow-[0_0_20px_rgba(59,130,246,0.6)]' : ''}`}
+                        style={{ filter: skill.name === 'AWS' ? 'brightness(0) invert(1)' : undefined }}
+                      />
                     </div>
-                    <div className="w-full bg-slate-800/50 rounded-full h-2.5 border border-slate-700/30">
-                      <div 
-                        className="bg-gradient-to-r from-blue-400 to-blue-600 h-2.5 rounded-full
-                          shadow-[0_0_10px_rgba(96,165,250,0.3)]"
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
+                    <span 
+                      className={`mt-4 text-sm transition-all duration-500 
+                        ${isCenter ? 'text-blue-400 font-bold text-lg' : 'text-gray-400'}`}
+                    >
+                      {skill.name}
+                    </span>
                   </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        <div className="mt-16 text-center">
-          <h3 className="text-xl font-bold mb-6">Other Skills & Technologies</h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            {['Laravel', 'Tailwind CSS', 'Jquery', 'Bootstrap', 'Google Cloud', 'Arduino', 'Raspberry', 
-              'Cisco', 'CI/CD', 'Kubernetes', 'Figma', 'WebSockets'].map((skill, index) => (
-              <span 
-                key={index} 
-                className="px-4 py-2 bg-gradient-to-br from-[#0d1524] to-[#0B1120] text-gray-300 
-                  rounded-full border-2 border-blue-500/20 hover:border-blue-500/40 
-                  transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
-              >
-                {skill}
-              </span>
-            ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
